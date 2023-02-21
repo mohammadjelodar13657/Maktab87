@@ -1,8 +1,13 @@
 package com.hfad.quizgame
 
-class Questions {
+import android.util.Log
 
-    var tag = 0
+class Questions {
+    companion object {
+        var tag = 0
+    }
+
+
     var wrongScore = 0
     var score = 0
 
@@ -21,22 +26,23 @@ class Questions {
 
     val questionAnswers = listOf("True", "False", "False", "False", "True", "False", "False", "True", "True", "False")
     val userAnswers = mutableListOf("","","","","","","","","","")
+    val cheatList = mutableListOf(true, true, true, true, true, true, true, true, true, true)
 
     fun sendQuestion(): String {
         return questionsList[tag]
     }
 
-    fun sendScore(answer: String): Int {
+    fun showScore(answer: String): String {
         if(questionAnswers[tag] == answer) {
-            score++
             userAnswers[tag] = "Correct"
+            if(cheatList[tag] == true) score++
         }
         else {
             wrongScore++
             if(wrongScore % 3 == 0 && score > 0) score--
             userAnswers[tag] = "Wrong"
         }
-        return score
+        return "Score: $score"
     }
 
 }

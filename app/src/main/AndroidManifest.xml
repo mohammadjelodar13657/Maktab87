@@ -12,7 +12,7 @@
         android:theme="@style/Theme.QuizGame"
         tools:targetApi="31">
         <activity
-            android:name=".Answer"
+            android:name=".Cheat"
             android:exported="false" />
         <activity
             android:name=".MainActivity"

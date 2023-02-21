@@ -1,20 +1,20 @@
 package com.hfad.quizgame
 
 import android.content.Intent
-import android.nfc.Tag
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
-import android.view.View
-import android.widget.Button
 import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
 import com.hfad.quizgame.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
+    companion object {
+        val KEY_QUESTION = "KEY_QUESTION"
+    }
 
     val questions = Questions()
-    private lateinit var answer: String
+    private var answer = 0
+    var isUserCheated = false
 
     lateinit var binding: ActivityMainBinding
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -24,63 +24,75 @@ class MainActivity : AppCompatActivity() {
 
         binding.questionText.text = questions.sendQuestion()
 
-        binding.prevButton.isEnabled = questions.tag != 0
+        binding.prevButton.isEnabled = Questions.tag != 0
 
         binding.trueButton.setOnClickListener {
             binding.answerText.text =
-                questions.sendScore(binding.trueButton.text.toString()).toString()
-            disableTrueFalseButton()
-            showCorrectness()
+                questions.showScore(binding.trueButton.text.toString())
+            disableTrueFalseCheatButtons()
+            showAnswerCorrectness()
         }
 
         binding.falseButton.setOnClickListener {
             binding.answerText.text =
-                questions.sendScore(binding.falseButton.text.toString()).toString()
-            disableTrueFalseButton()
-            showCorrectness()
+                questions.showScore(binding.falseButton.text.toString())
+            disableTrueFalseCheatButtons()
+            showAnswerCorrectness()
         }
 
         binding.prevButton.setOnClickListener {
             binding.nextButton.isEnabled = true
-            questions.tag--
-            binding.prevButton.isEnabled = questions.tag != 0
-            disableTrueFalseButton()
-            show()
+            Questions.tag--
+            binding.prevButton.isEnabled = Questions.tag != 0
+            disableTrueFalseCheatButtons()
+            showQuestions()
         }
 
         binding.nextButton.setOnClickListener {
             binding.prevButton.isEnabled = true
-            questions.tag++
-            binding.nextButton.isEnabled = questions.tag != 9
-            disableTrueFalseButton()
-            show()
+            Questions.tag++
+            binding.nextButton.isEnabled = Questions.tag != 9
+            disableTrueFalseCheatButtons()
+            showQuestions()
         }
 
         binding.cheatButton.setOnClickListener {
             val question = binding.questionText.text.toString()
-            val cheatPage = Intent(this, Answer::class.java)
-                .putExtra("KEY_QUESTION", question)
-            startActivity(cheatPage)
+            val cheatPage = Intent(this, Cheat::class.java)
+                .putExtra(KEY_QUESTION, question)
+            cheatResult.launch(cheatPage)
         }
     }
 
-    fun show() {
+    fun showQuestions() {
         binding.questionText.text = questions.sendQuestion()
     }
 
-    fun disableTrueFalseButton() {
-        binding.falseButton.isEnabled = questions.userAnswers[questions.tag].isEmpty()
-        binding.trueButton.isEnabled = questions.userAnswers[questions.tag].isEmpty()
+    fun disableTrueFalseCheatButtons() {
+        binding.falseButton.isEnabled = questions.userAnswers[Questions.tag].isEmpty()
+        binding.trueButton.isEnabled = questions.userAnswers[Questions.tag].isEmpty()
+        binding.cheatButton.isEnabled = questions.userAnswers[Questions.tag].isEmpty()
     }
 
-    fun showCorrectness() {
-        Toast.makeText(this, questions.userAnswers[questions.tag], Toast.LENGTH_SHORT).show()
+    fun showAnswerCorrectness() {
+        if(questions.cheatList[Questions.tag]) {
+            Toast.makeText(this, questions.userAnswers[Questions.tag], Toast.LENGTH_SHORT).show()
+        }
+        else if(!questions.cheatList[Questions.tag] && questions.userAnswers[Questions.tag] == "Wrong") {
+            Toast.makeText(this, questions.userAnswers[Questions.tag], Toast.LENGTH_SHORT).show()
+        }
+        else {
+            Toast.makeText(this, "Cheating is wrong!", Toast.LENGTH_SHORT).show()
+        }
     }
 
-    val question =
-        registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
-            when (result.resultCode) {
-
+    val cheatResult =
+        registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
+            val x = it.data?.extras?.getBoolean(Cheat.KEY_RESULT)!!
+            if (it.resultCode == RESULT_OK) {
+                questions.cheatList[Questions.tag] = x
             }
         }
+
+
 }
