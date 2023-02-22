@@ -4,6 +4,15 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
+        <variable
+            name="viewModel"
+            type="com.maktbesharif.hw_11_3_1.LoginViewModel" />
+        <variable
+            name="username"
+            type="String" />
+        <variable
+            name="password"
+            type="String" />
 
     </data>
 
@@ -22,6 +31,7 @@
             android:layout_marginTop="40dp"
             android:ems="10"
             android:hint="Username"
+            android:text="@{viewModel.username.toString()}"
             android:inputType="textPersonName"
             android:minHeight="48dp"
             android:textColorHint="#ddd5d0"
@@ -37,6 +47,7 @@
             android:layout_marginTop="25dp"
             android:ems="10"
             android:hint="Password"
+            android:text="@{viewModel.password.toString()}"
             android:inputType="numberPassword"
             android:minHeight="48dp"
             android:textColorHint="#ddd5d0"
