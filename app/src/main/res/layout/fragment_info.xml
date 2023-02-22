@@ -1,80 +1,87 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="#ffe5d9"
-    tools:context=".InfoFragment">
+    xmlns:tools="http://schemas.android.com/tools">
 
-    <LinearLayout
-        android:id="@+id/show"
-        android:layout_width="0dp"
+    <data>
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:gravity="center"
-        android:orientation="vertical"
-        android:visibility="visible"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        android:background="#ffe5d9"
+        tools:context=".InfoFragment">
 
-        <androidx.appcompat.widget.AppCompatTextView
-            android:id="@+id/fullNameText"
-            android:layout_width="350dp"
-            android:layout_height="48dp"
-            android:background="@drawable/text_view"
-            android:gravity="center_vertical"
-            android:paddingStart="20dp" />
+        <LinearLayout
+            android:id="@+id/show"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:visibility="visible"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
 
-        <androidx.appcompat.widget.AppCompatTextView
-            android:id="@+id/usernameText"
-            android:layout_width="350dp"
-            android:layout_height="48dp"
-            android:layout_marginTop="10dp"
-            android:background="@drawable/text_view"
-            android:gravity="center_vertical"
-            android:paddingStart="20dp" />
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/fullNameText"
+                android:layout_width="350dp"
+                android:layout_height="48dp"
+                android:background="@drawable/text_view"
+                android:gravity="center_vertical"
+                android:paddingStart="20dp" />
 
-        <androidx.appcompat.widget.AppCompatTextView
-            android:id="@+id/emailText"
-            android:layout_width="350dp"
-            android:layout_height="48dp"
-            android:layout_marginTop="10dp"
-            android:background="@drawable/text_view"
-            android:gravity="center_vertical"
-            android:paddingStart="20dp" />
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/usernameText"
+                android:layout_width="350dp"
+                android:layout_height="48dp"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/text_view"
+                android:gravity="center_vertical"
+                android:paddingStart="20dp" />
 
-        <androidx.appcompat.widget.AppCompatTextView
-            android:id="@+id/passwordText"
-            android:layout_width="350dp"
-            android:layout_height="48dp"
-            android:layout_marginTop="10dp"
-            android:background="@drawable/text_view"
-            android:gravity="center_vertical"
-            android:paddingStart="20dp" />
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/emailText"
+                android:layout_width="350dp"
+                android:layout_height="48dp"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/text_view"
+                android:gravity="center_vertical"
+                android:paddingStart="20dp" />
 
-        <androidx.appcompat.widget.AppCompatTextView
-            android:id="@+id/genderText"
-            android:layout_width="350dp"
-            android:layout_height="48dp"
-            android:layout_marginTop="10dp"
-            android:background="@drawable/text_view"
-            android:gravity="center_vertical"
-            android:paddingStart="20dp" />
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/passwordText"
+                android:layout_width="350dp"
+                android:layout_height="48dp"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/text_view"
+                android:gravity="center_vertical"
+                android:paddingStart="20dp" />
 
-        <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/hideInfo"
-            android:layout_width="350dp"
-            android:layout_height="48dp"
-            android:layout_marginTop="20dp"
-            android:layout_marginBottom="20dp"
-            android:background="@drawable/hide_info"
-            android:text="Hide Info"
-            android:textAllCaps="false"
-            android:textColor="@color/white"
-            android:textSize="15sp"
-            android:textStyle="bold" />
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/genderText"
+                android:layout_width="350dp"
+                android:layout_height="48dp"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/text_view"
+                android:gravity="center_vertical"
+                android:paddingStart="20dp" />
 
-    </LinearLayout>
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/hideInfo"
+                android:layout_width="350dp"
+                android:layout_height="48dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="20dp"
+                android:background="@drawable/hide_info"
+                android:text="Hide Info"
+                android:textAllCaps="false"
+                android:textColor="@color/white"
+                android:textSize="15sp"
+                android:textStyle="bold" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        </LinearLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
