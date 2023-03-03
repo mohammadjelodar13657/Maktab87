@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/login_navigation_graph"
+    app:startDestination="@id/welcomeFragment2">
+
+    <fragment
+        android:id="@+id/loginFragment"
+        android:name="com.maktbesharif.azmoonqueez.login.LoginFragment"
+        android:label="LoginFragment"
+        tools:layout="@layout/fragment_login">
+        <action
+            android:id="@+id/action_loginFragment_to_signupFragment"
+            app:destination="@id/signupFragment" />
+        <argument
+            android:name="signupUsername"
+            app:argType="string"
+            android:defaultValue="u" />
+        <argument
+            android:name="signupPassword"
+            app:argType="string" />
+    </fragment>
+    <fragment
+        android:id="@+id/signupFragment"
+        android:name="com.maktbesharif.azmoonqueez.signup.SignupFragment"
+        android:label="SignupFragment"
+        tools:layout="@layout/fragment_signup">
+        <argument
+            android:name="username"
+            app:argType="string"
+            android:defaultValue="ali" />
+        <argument
+            android:name="password"
+            app:argType="string"
+            android:defaultValue="123456" />
+        <action
+            android:id="@+id/action_signupFragment_to_loginFragment"
+            app:destination="@id/loginFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/welcomeFragment2"
+        android:name="com.maktbesharif.azmoonqueez.WelcomeFragment"
+        android:label="WelcomeFragment"
+        tools:layout="@layout/fragment_welcome">
+        <action
+            android:id="@+id/action_welcomeFragment2_to_loginFragment"
+            app:destination="@id/loginFragment" />
+    </fragment>
+</navigation>
