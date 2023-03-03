@@ -2,4 +2,27 @@
     <string name="app_name">HW_13_1</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <!--  project strings  -->
+    <string name="fire_engine_red">Fire Engine Red</string>
+    <string name="prussian_blue">Prussian Blue</string>
+    <string name="xanthous">Xanthus</string>
+    <string name="orange">Orange</string>
+    <string name="vanilla">Vanilla</string>
+    <string name="wine">Wine</string>
+    <string name="spanish_orange">Spanish Orange</string>
+    <string name="auburn">Auburn</string>
+    <string name="dark_purple">Dark Purple</string>
+    <string name="earth_yellow">Earth Yellow</string>
+    <string name="eggplant">Eggplant</string>
+    <string name="pakistan_green">Pakistan Green</string>
+    <string name="black_bean">Black Bean</string>
+    <string name="citrine">Citrine</string>
+    <string name="lime_green">Lime Green</string>
+    <string name="celestial_blue">Celestial Blue</string>
+    <string name="red_violet">Red Violet</string>
+    <string name="magneta">Magneta</string>
+    <string name="mint">Mint</string>
+    <string name="thulian_pink">Thulian</string>
+    <!--  end  -->
 </resources>

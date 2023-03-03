@@ -7,4 +7,27 @@
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+
+    <!--  project colors  -->
+    <color name="fire_engine_red">#d62828</color>
+    <color name="prussian_blue">#003049</color>
+    <color name="xanthous">#fcb322</color>
+    <color name="orange">#f77f00</color>
+    <color name="vanilla">#eae2b7</color>
+    <color name="wine">#6b2c39</color>
+    <color name="spanish_orange">#e96e25</color>
+    <color name="auburn">#a12a31</color>
+    <color name="dark_purple">#6b2c39</color>
+    <color name="earth_yellow">#f1b15c</color>
+    <color name="eggplant">#512d3d</color>
+    <color name="pakistan_green">#004a0c</color>
+    <color name="black_bean">#4A0000</color>
+    <color name="citrine">#D3C312</color>
+    <color name="lime_green">#12D332</color>
+    <color name="celestial_blue">#1290D3</color>
+    <color name="red_violet">#D31289</color>
+    <color name="magneta">#FF0392</color>
+    <color name="mint">#20BB85</color>
+    <color name="thulian_pink">#DD6DA3</color>
+    <!--  end  -->
 </resources>
