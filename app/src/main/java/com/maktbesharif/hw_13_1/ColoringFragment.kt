@@ -25,28 +25,9 @@ class ColoringFragment : Fragment() {
     ): View? {
         val view = inflater.inflate(R.layout.fragment_coloring, container, false)
         val recyclerView = view.findViewById<RecyclerView>(R.id.recyclerView)
-        val adaptor = Adaptor(createList())
+        val adaptor = Adaptor(coloringViewModel.colorPaletteList)
         recyclerView.layoutManager = GridLayoutManager(requireContext(), 1)
         recyclerView.adapter = adaptor
         return view
     }
-
-    fun createList(): ArrayList<ColorsList> {
-        val colorList = arrayListOf<ColorsList>()
-        for(i in 0 until 20) {
-            colorList.add(coloringViewModel.colorPaletteList[i])
-        }
-        return colorList
-    }
-
-//    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-//        super.onViewCreated(view, savedInstanceState)
-//        binding = DataBindingUtil.bind(view)!!
-//
-//        val recyclerView = view.findViewById<RecyclerView>(R.id.recyclerView)
-//        val adaptor = Adaptor(coloringViewModel.colorPaletteList)
-//        recyclerView.layoutManager = GridLayoutManager(requireContext(), 1)
-//        recyclerView.adapter = adaptor
-//
-//    }
 }
