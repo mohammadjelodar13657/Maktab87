@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/homeFragment"
+        android:icon="@drawable/bnv_home_icon"
+        android:title="Home" />
+    <item
+        android:id="@+id/comingSoonFragment"
+        android:icon="@drawable/bnv_coming_soon_icon"
+        android:title="Coming Soon" />
+    <item
+        android:id="@+id/favoriteFragment"
+        android:icon="@drawable/bnv_favorite_icon"
+        android:title="Favorite" />
+    <item
+        android:icon="@drawable/bnv_profile_icon"
+        android:title="Profile" />
+</menu>
