@@ -26,9 +26,9 @@ class ColoringFragment : Fragment(){
     ): View? {
         val view = inflater.inflate(R.layout.fragment_coloring, container, false)
         val recyclerView = view.findViewById<RecyclerView>(R.id.recyclerView)
-        adaptor = Adaptor(coloringViewModel.colorPaletteList) { position ->
+        adaptor = Adaptor(coloringViewModel.colorPaletteList) { position, adaptorView ->
             getPosition(
-                position
+                position, adaptorView
             )
         }
         recyclerView.layoutManager = GridLayoutManager(requireContext(), 1)
@@ -36,7 +36,7 @@ class ColoringFragment : Fragment(){
         return view
     }
 
-    private fun getPosition(position: Int) {
+    private fun getPosition(position: Int, adaptorView: View) {
         val colorID = coloringViewModel.colorPaletteList[position].bgColor
         for(i in coloringViewModel.colorPaletteList.indices) {
             coloringViewModel.colorPaletteList[i].textColor = colorID
@@ -44,6 +44,6 @@ class ColoringFragment : Fragment(){
 
         coloringViewModel.colorPaletteList.removeAt(position)
 
-        view?.handler?.postDelayed(runnable, 5000)
+        adaptorView.handler.postDelayed(runnable, 5000)
     }
 }

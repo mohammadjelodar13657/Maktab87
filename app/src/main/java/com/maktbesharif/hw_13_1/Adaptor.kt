@@ -9,7 +9,7 @@ import android.widget.TextView
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.recyclerview.widget.RecyclerView
 
-class Adaptor(private val item: ArrayList<ColorsList>, val onClick: (position: Int) -> (Unit) ): RecyclerView.Adapter<Adaptor.ViewHolder>() {
+class Adaptor(private val item: ArrayList<ColorsList>, val onClick: (position: Int, adaptorView: View) -> (Unit) ): RecyclerView.Adapter<Adaptor.ViewHolder>() {
     inner class ViewHolder(itemView: View): RecyclerView.ViewHolder(itemView) {
         val textView: TextView = itemView.findViewById(R.id.color_palette)
         val layout: ConstraintLayout = itemView.findViewById(R.id.constraint)
@@ -30,7 +30,7 @@ class Adaptor(private val item: ArrayList<ColorsList>, val onClick: (position: I
             textView.setTextColor(Color.parseColor(item[position].textColor))
 
             textView.setOnClickListener {
-                onClick(position)
+                onClick(position, it)
                 notifyDataSetChanged()
             }
         }
