@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">HW_12_1</string>
+    <string name="app_name">Netflix</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
 
@@ -26,4 +26,10 @@
     <string name="salt">Salt</string>
     <string name="chaos">Chaos</string>
     <!--  End  -->
+
+    <!--  coming soon names  -->
+    <string name="operation_fortune">Operation Fortune</string>
+    <string name="john_wick_4">John Wick 4</string>
+    <string name="fast_x">Fast X</string>
+    <!--  end  -->
 </resources>

@@ -6,10 +6,9 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
-import androidx.recyclerview.widget.RecyclerView.ViewHolder
 
-class Adaptor(private val item: ArrayList<Movies>, val onClick: (position: Int, movies: Movies) -> Unit) :
-    RecyclerView.Adapter<Adaptor.ViewHolder>() {
+class ComingSoonAdaptor(private val item: ArrayList<Movies>, val getMoviePosition: (position: Int) -> Unit) :
+    RecyclerView.Adapter<ComingSoonAdaptor.ViewHolder>() {
 
     var click = true
 
@@ -30,24 +29,10 @@ class Adaptor(private val item: ArrayList<Movies>, val onClick: (position: Int, 
         holder.apply {
             textView.setText(movieItem.names)
             moviePicture.setImageResource(movieItem.pics)
-            when (movieItem.isClicked) {
-                true -> {
-                    favIcon.setImageResource(R.drawable.favorite_icon)
-                }
-                false -> {
-                    favIcon.setImageResource(R.drawable.favorite_border_icon)
-                }
-            }
+            favIcon.setImageResource(movieItem.favIcon)
 
             favIcon.setOnClickListener {
-                onClick(position, movieItem)
-                if(movieItem.isClickable == true) {
-                    if (movieItem.isClicked == true) {
-                        favIcon.setImageResource(R.drawable.favorite_icon)
-                    } else {
-                        favIcon.setImageResource(R.drawable.favorite_border_icon)
-                    }
-                }
+                getMoviePosition(position)
             }
         }
     }
