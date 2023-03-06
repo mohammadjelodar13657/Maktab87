@@ -1,9 +1,9 @@
 package com.maktbesharif.hw_12_1
 
 data class Movies(
-    private var names: Int,
-    private var pics: Int,
-    private var favIcon: Int,
-    private var isClicked: Boolean = false,
-    private var isClickable: Boolean = false
+    var names: Int,
+    var pics: Int,
+    var favIcon: Int = R.drawable.favorite_border_icon,
+    var isClicked: Boolean = false,
+    var isClickable: Boolean = false
 )

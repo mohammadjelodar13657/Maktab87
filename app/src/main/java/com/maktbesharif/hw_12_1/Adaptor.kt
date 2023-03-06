@@ -8,13 +8,14 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.RecyclerView.ViewHolder
 
-class Adaptor(private val item: ArrayList<String>) : RecyclerView.Adapter<Adaptor.ViewHolder>() {
+class Adaptor(private val item: ArrayList<Movies>, val viewModel: MoviesViewModel, val onClick: (position: Int) -> Unit) : RecyclerView.Adapter<Adaptor.ViewHolder>() {
 
     var click = true
 
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val textView: TextView = itemView.findViewById(R.id.text)
-        val icon: ImageView = itemView.findViewById(R.id.icon)
+        val moviePicture: ImageView = itemView.findViewById(R.id.imageView)
+        val favIcon: ImageView = itemView.findViewById(R.id.icon)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -24,17 +25,28 @@ class Adaptor(private val item: ArrayList<String>) : RecyclerView.Adapter<Adapto
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        holder.textView.text = item[position]
-        holder.icon.setOnClickListener {
+        holder.apply {
+            textView.setText(item[position].names)
+            moviePicture.setImageResource(item[position].pics)
+            favIcon.setImageResource(item[position].favIcon)
 
-            if (click == true) {
-                holder.icon.setImageResource(R.drawable.favorite_icon)
-                click = false
-            } else {
-                holder.icon.setImageResource(R.drawable.favorite_border_icon)
-                click = true
+            favIcon.setOnClickListener {
+                onClick(position)
+//                notifyDataSetChanged()
+                if (item[position].isClicked == true) {
+                    favIcon.setImageResource(R.drawable.favorite_icon)
+//                    notifyDataSetChanged()
+//                    click = false
+                } else {
+                    favIcon.setImageResource(R.drawable.favorite_border_icon)
+//                    notifyDataSetChanged()
+//                    click = true
+                }
+//                notifyDataSetChanged()
             }
         }
+
+
     }
 
     override fun getItemCount(): Int {
