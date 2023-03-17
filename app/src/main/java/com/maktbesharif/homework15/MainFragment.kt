@@ -26,8 +26,7 @@ class MainFragment : Fragment(R.layout.fragment_main) {
         binding = DataBindingUtil.bind(view)!!
 
         binding.floatingButton.setOnClickListener {
-            sharedViewModel.taskList.add(Task(sharedViewModel.defineTaskName().taskName, sharedViewModel.defineState()))
-            sharedViewModel.setList(sharedViewModel.taskList)
+            sharedViewModel.createTask()
         }
 
         adapter = ViewPagerAdapter(this)

@@ -5,10 +5,11 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.DiffUtil
+import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.maktbesharif.homework15.R
 
-class TaskAdapter(): androidx.recyclerview.widget.ListAdapter<Task, TaskAdapter.CityViewHolder>(TaskDiffCallBack()) {
+class TaskAdapter(): ListAdapter<Task, TaskAdapter.CityViewHolder>(TaskDiffCallBack()) {
     class CityViewHolder(itemView: View): RecyclerView.ViewHolder(itemView) {
         val taskName = itemView.findViewById<TextView>(R.id.taskName)
         val taskState = itemView.findViewById<TextView>(R.id.taskState)

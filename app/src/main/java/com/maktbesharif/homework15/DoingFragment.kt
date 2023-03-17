@@ -24,12 +24,12 @@ class DoingFragment : Fragment(R.layout.fragment_doing) {
         super.onViewCreated(view, savedInstanceState)
         binding = DataBindingUtil.bind(view)!!
 
-        binding.recyclerView.layoutManager = LinearLayoutManager(requireContext(), RecyclerView.VERTICAL, false)
-        sharedViewModel.taskLive.observe(viewLifecycleOwner
+        binding.recyclerViewDoing.layoutManager = LinearLayoutManager(requireContext(), RecyclerView.VERTICAL, false)
+        sharedViewModel.doingTaskListLive.observe(viewLifecycleOwner
         ) {
             adapter = TaskAdapter()
-            adapter.submitList(it!!.toMutableList())
-            binding.recyclerView.adapter = adapter
+            adapter.submitList(it!!)
+            binding.recyclerViewDoing.adapter = adapter
         }
     }
 }

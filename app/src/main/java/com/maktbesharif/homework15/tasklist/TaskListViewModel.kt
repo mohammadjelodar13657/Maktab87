@@ -1,5 +1,7 @@
 package com.maktbesharif.hw_13_2.tasklist
 
+import android.content.ContentValues.TAG
+import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -10,23 +12,37 @@ class TaskListViewModel: ViewModel() {
     val doneTaskList = arrayListOf<Task>()
     val doingTaskList = arrayListOf<Task>()
 
-    val taskLive = MutableLiveData<ArrayList<Task>>()
+    val todoTaskListLive = MutableLiveData<ArrayList<Task>>()
+    val doneTaskListLive = MutableLiveData<ArrayList<Task>>()
+    val doingTaskListLive = MutableLiveData<ArrayList<Task>>()
 
-    val taskList = arrayListOf<Task>()
-
-    fun setList(list: ArrayList<Task>) {
-        taskLive.postValue(list)
+    fun pushTodo(todoList: ArrayList<Task>) {
+        todoTaskListLive.postValue(todoList)
     }
-
-//    init {
-//        setList(taskList)
-//    }
+    fun pushDoing(doingList: ArrayList<Task>) {
+        doingTaskListLive.postValue(doingList)
+    }
+    fun pushDone(doneList: ArrayList<Task>) {
+        doneTaskListLive.postValue(doneList)
+    }
 
     fun createTask() {
         when(defineState()) {
-            State.TODO -> taskList.add(Task(defineTaskName().taskName, defineState()))
-            State.DOING -> taskList.add(Task(defineTaskName().taskName, defineState()))
-            State.DONE -> taskList.add(Task(defineTaskName().taskName, defineState()))
+            State.TODO -> {
+                todoTaskList.add(Task(defineTaskName().taskName, State.TODO))
+                pushTodo(todoTaskList)
+                Log.e(TAG, "todo: ${todoTaskList}", )
+            }
+            State.DOING -> {
+                doingTaskList.add(Task(defineTaskName().taskName, State.DOING))
+                pushDoing(doingTaskList)
+                Log.e(TAG, "done: ${doingTaskList}", )
+            }
+            State.DONE -> {
+                doneTaskList.add(Task(defineTaskName().taskName, State.DONE))
+                pushDone(doneTaskList)
+                Log.e(TAG, "doing: ${doneTaskList}", )
+            }
         }
     }
 
