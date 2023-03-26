@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="viewModel"
+            type="com.maktbesharif.hw_15_1.registertask.RegisterTaskViewModel" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#219ebc"
+        tools:context=".taskmaker.TaskMakerFragment">
+
+        <EditText
+            android:id="@+id/name"
+            android:layout_width="300dp"
+            android:layout_height="48dp"
+            android:layout_marginTop="150dp"
+            android:hint="Name:"
+            android:text="@={viewModel.name}"
+            android:textColor="@color/white"
+            android:textColorHint="@color/white"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <EditText
+            android:id="@+id/taskNumber"
+            android:layout_width="300dp"
+            android:layout_height="0dp"
+            android:layout_marginTop="50dp"
+            android:hint="Number of tasks: "
+            android:text="@={viewModel.numberOfTasks}"
+            android:textColor="@color/white"
+            android:textColorHint="@color/white"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/name"
+            tools:ignore="TouchTargetSizeCheck" />
+
+        <Button
+            android:id="@+id/create"
+            android:layout_width="300dp"
+            android:layout_height="48dp"
+            android:layout_marginTop="212dp"
+            android:layout_marginBottom="50dp"
+            android:text="Create"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/taskNumber" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
