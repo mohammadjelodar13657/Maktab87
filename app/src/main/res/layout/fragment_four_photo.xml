@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="imageUrl1"
+            type="com.maktab87programs.hw_15_3.data_models.DataModel" />
+
+        <variable
+            name="imageUrl2"
+            type="com.maktab87programs.hw_15_3.data_models.DataModel" />
+
+        <variable
+            name="imageUrl3"
+            type="com.maktab87programs.hw_15_3.data_models.DataModel" />
+
+        <variable
+            name="imageUrl4"
+            type="com.maktab87programs.hw_15_3.data_models.DataModel" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".activities.MainActivity">
+
+
+        <ImageView
+            android:id="@+id/imageViewOne"
+            loadImageFromUrl="@{imageUrl1.profilePhoto}"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:contentDescription="@string/img_desc"
+            app:layout_constraintBottom_toTopOf="@+id/imageViewTwo"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.5"
+            tools:srcCompat="@tools:sample/avatars" />
+
+        <ImageView
+            android:id="@+id/imageViewTwo"
+            loadImageFromUrl="@{imageUrl2.profilePhoto}"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:contentDescription="@string/img_desc"
+            app:layout_constraintBottom_toTopOf="@+id/imageViewThree"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imageViewOne"
+            app:layout_constraintVertical_bias="0.5"
+            tools:srcCompat="@tools:sample/avatars" />
+
+        <ImageView
+            android:id="@+id/imageViewThree"
+            loadImageFromUrl="@{imageUrl3.profilePhoto}"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:contentDescription="@string/img_desc"
+            app:layout_constraintBottom_toTopOf="@+id/imageViewFour"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imageViewTwo"
+            app:layout_constraintVertical_bias="0.5"
+            tools:srcCompat="@tools:sample/avatars" />
+
+        <ImageView
+            android:id="@+id/imageViewFour"
+            loadImageFromUrl="@{imageUrl4.profilePhoto}"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:layout_marginBottom="16dp"
+            android:contentDescription="@string/img_desc"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imageViewThree"
+            app:layout_constraintVertical_bias="0.5"
+            tools:srcCompat="@tools:sample/avatars" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

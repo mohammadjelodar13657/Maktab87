@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/my_nav"
+    app:startDestination="@id/fourPhotoFragment">
+
+    <fragment
+        android:id="@+id/fourPhotoFragment"
+        android:name="com.maktab87programs.hw_15_3.fragments.FourPhotoFragment"
+        android:label="fragment_four_photo"
+        tools:layout="@layout/fragment_four_photo" />
+    <fragment
+        android:id="@+id/twentyImagesFragment"
+        android:name="com.maktab87programs.hw_15_3.fragments.TwentyImagesFragment"
+        android:label="TwentyImagesFragment"
+        tools:layout="@layout/fragment_four_photo"/>
+</navigation>
