@@ -3,11 +3,14 @@
 
     <item
         android:id="@+id/todoFragment2"
+        android:icon="@drawable/baseline_fact_check_24"
         android:title="ToDo" />
     <item
         android:id="@+id/doingFragment2"
+        android:icon="@drawable/baseline_double_arrow_24"
         android:title="Doing" />
     <item
         android:id="@+id/doneFragment2"
+        android:icon="@drawable/baseline_done_24"
         android:title="Done" />
 </menu>
