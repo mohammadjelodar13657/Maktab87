@@ -1,6 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:id="@+id/nav_graph">
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/todoFragment2">
 
+    <fragment
+        android:id="@+id/todoFragment2"
+        android:name="com.maktbesharif.hw_15_1.tabbedfragments.TodoFragment"
+        android:label="TodoFragment" />
+    <fragment
+        android:id="@+id/doingFragment2"
+        android:name="com.maktbesharif.hw_15_1.tabbedfragments.DoingFragment"
+        android:label="DoingFragment" />
+    <fragment
+        android:id="@+id/doneFragment2"
+        android:name="com.maktbesharif.hw_15_1.tabbedfragments.DoneFragment"
+        android:label="DoneFragment" />
 </navigation>

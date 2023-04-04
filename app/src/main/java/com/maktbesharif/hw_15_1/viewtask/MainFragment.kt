@@ -38,13 +38,13 @@ class MainFragment : Fragment(R.layout.fragment_main) {
             sharedViewModel.createTask()
         }
 
-        adapter = ViewPagerAdapter(this)
-        val viewPager = binding.viewPager
-        viewPager.adapter = adapter
-
-        val tabLayout = binding.tabLayout
-        TabLayoutMediator(tabLayout, viewPager) {
-            tab, position -> tab.text = labelList[position]
-        }.attach()
+//        adapter = ViewPagerAdapter(this)
+//        val viewPager = binding.viewPager
+//        viewPager.adapter = adapter
+//
+//        val tabLayout = binding.tabLayout
+//        TabLayoutMediator(tabLayout, viewPager) {
+//            tab, position -> tab.text = labelList[position]
+//        }.attach()
     }
 }
