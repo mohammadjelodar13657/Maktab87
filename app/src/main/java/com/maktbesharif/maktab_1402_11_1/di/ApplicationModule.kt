@@ -1,5 +1,6 @@
 package com.maktbesharif.maktab_1402_11_1.di
 
+import com.maktbesharif.maktab_1402_11_1.PhotosService
 import com.maktbesharif.maktab_1402_11_1.WeatherSend
 import dagger.Module
 import dagger.Provides
@@ -48,8 +49,9 @@ class ApplicationModule {
             .build()
 
     @Singleton
+    @Weather
     @Provides
-    fun provideRetrofit(gson: GsonConverterFactory, client: OkHttpClient): Retrofit =
+    fun provideWeatherRetrofit(gson: GsonConverterFactory, client: OkHttpClient): Retrofit =
         Retrofit.Builder()
             .baseUrl("https://api.openweathermap.org/")
             .addConverterFactory(gson)
@@ -57,6 +59,22 @@ class ApplicationModule {
             .build()
 
     @Singleton
+    @Flicker
     @Provides
-    fun provideService(retrofit: Retrofit): WeatherSend = retrofit.create(WeatherSend::class.java)
+    fun provideFlickerRetrofit(gson: GsonConverterFactory, client: OkHttpClient): Retrofit =
+        Retrofit.Builder()
+            .baseUrl("https://www.flickr.com/services/rest")
+            .addConverterFactory(gson)
+            .client(client)
+            .build()
+
+    @Singleton
+    @Weather
+    @Provides
+    fun provideWeatherService(retrofit: Retrofit): WeatherSend = retrofit.create(WeatherSend::class.java)
+
+    @Singleton
+    @Flicker
+    @Provides
+    fun provideFlickerService(retrofit: Retrofit): PhotosService = retrofit.create(PhotosService::class.java)
 }

@@ -27,24 +27,23 @@ class MainFragment: Fragment(R.layout.fragment_main) {
 
         weatherViewModel.getWeather("Tehran")
 
-        weatherViewModel.weatherLiveData.observe(viewLifecycleOwner, object: Observer<Call<Weather>>{
-            override fun onChanged(t: Call<Weather>?) {
-                t!!.enqueue(object: Callback<Weather>{
-                    override fun onResponse(call: Call<Weather>, response: Response<Weather>) {
-                        Log.d(TAG, "onResponse: ${response.body()!!.weather[0].description}")
-                        binding.tvCurrentWeather.text = response.body()!!.weather[0].main
-                        binding.tvCurrentTemp.text = response.body()!!.main.temp.toString()
-                        binding.tvWindSpeed.text = response.body()!!.wind.speed.toString()
-                        binding.tvHumidity.text = response.body()!!.main.humidity.toString()
-                        binding.tvPressure.text = response.body()!!.main.pressure.toString()
-                        binding.tvRainChance.text = response.body()!!.clouds.all.toString()
-                    }
+        weatherViewModel.weatherLiveData.observe(viewLifecycleOwner
+        ) { t ->
+            t!!.enqueue(object : Callback<Weather> {
+                override fun onResponse(call: Call<Weather>, response: Response<Weather>) {
+                    Log.d(TAG, "onResponse: ${response.body()!!.weather[0].description}")
+                    binding.tvCurrentWeather.text = response.body()!!.weather[0].main
+                    binding.tvCurrentTemp.text = response.body()!!.main.temp.toString()
+                    binding.tvWindSpeed.text = response.body()!!.wind.speed.toString()
+                    binding.tvHumidity.text = response.body()!!.main.humidity.toString()
+                    binding.tvPressure.text = response.body()!!.main.pressure.toString()
+                    binding.tvRainChance.text = response.body()!!.clouds.all.toString()
+                }
 
-                    override fun onFailure(call: Call<Weather>, t: Throwable) {
-                        TODO("Not yet implemented")
-                    }
-                })
-            }
-        })
+                override fun onFailure(call: Call<Weather>, t: Throwable) {
+                    TODO("Not yet implemented")
+                }
+            })
+        }
     }
 }
