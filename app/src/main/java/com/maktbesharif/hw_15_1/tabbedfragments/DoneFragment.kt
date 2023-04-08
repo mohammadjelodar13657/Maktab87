@@ -1,6 +1,8 @@
 package com.maktbesharif.hw_15_1.tabbedfragments
 
+import android.content.ContentValues
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
@@ -21,11 +23,13 @@ class DoneFragment : Fragment(R.layout.fragment_done) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding = DataBindingUtil.bind(view)!!
+        Log.e(ContentValues.TAG, "DoneList: ${sharedViewModel.doneTaskList}", )
 
         binding.recyclerViewDone.layoutManager =
             LinearLayoutManager(requireContext(), RecyclerView.VERTICAL, false)
         sharedViewModel.doneTaskListLive.observe(viewLifecycleOwner) {
             adapter = TaskAdapter()
+            Log.e(ContentValues.TAG, "DONE: $it", )
             adapter.submitList(it)
             binding.recyclerViewDone.adapter = adapter
         }

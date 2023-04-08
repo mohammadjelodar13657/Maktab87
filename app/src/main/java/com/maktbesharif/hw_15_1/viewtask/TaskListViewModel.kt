@@ -14,9 +14,9 @@ class TaskListViewModel: ViewModel() {
     private val _taskNumber = MutableLiveData(0)
     private val taskNumber: LiveData<Int?> = _taskNumber
 
-    private val todoTaskList = arrayListOf<Task>()
-    private val doneTaskList = arrayListOf<Task>()
-    private val doingTaskList = arrayListOf<Task>()
+    val todoTaskList = arrayListOf<Task>()
+    val doneTaskList = arrayListOf<Task>()
+    val doingTaskList = arrayListOf<Task>()
 
     val todoTaskListLive = MutableLiveData<ArrayList<Task>>()
     val doneTaskListLive = MutableLiveData<ArrayList<Task>>()
