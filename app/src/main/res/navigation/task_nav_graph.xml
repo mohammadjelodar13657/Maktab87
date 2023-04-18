@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/task_nav_graph"
+    app:startDestination="@id/mainFragment">
+
+    <fragment
+        android:id="@+id/todoFragment"
+        android:name="com.maktab87programs.taskmanager.TodoFragment"
+        android:label="TodoFragment"
+        tools:layout="@layout/fragment_todo"/>
+    <fragment
+        android:id="@+id/doingFragment"
+        android:name="com.maktab87programs.taskmanager.DoingFragment"
+        android:label="DoingFragment"
+        tools:layout="@layout/fragment_doing"/>
+    <fragment
+        android:id="@+id/doneFragment"
+        android:name="com.maktab87programs.taskmanager.DoneFragment"
+        android:label="DoneFragment"
+        tools:layout="@layout/fragment_done"/>
+    <fragment
+        android:id="@+id/mainFragment"
+        android:name="com.maktab87programs.taskmanager.MainFragment"
+        android:label="MainFragment"
+        tools:layout="@layout/fragment_main"/>
+</navigation>

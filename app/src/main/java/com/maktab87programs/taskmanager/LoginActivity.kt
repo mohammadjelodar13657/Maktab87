@@ -13,10 +13,5 @@ class LoginActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = DataBindingUtil.setContentView(this, R.layout.activity_login)!!
-
-        binding.btnLogin.setOnClickListener {
-            val intent = Intent(this, TaskManagerActivity::class.java)
-            startActivity(intent)
-        }
     }
 }

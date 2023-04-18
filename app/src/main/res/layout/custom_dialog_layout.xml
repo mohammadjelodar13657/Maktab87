@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="viewModel"
+            type="com.maktab87programs.taskmanager.TaskManagerViewModel" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:padding="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
+        <EditText
+            android:id="@+id/dialog_title_tv"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:hint="Title"
+            android:inputType="text"
+            android:minHeight="48dp"
+            android:text="@={viewModel.taskTitle}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <EditText
+            android:id="@+id/dialog_description_tv"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:hint="Description"
+            android:inputType="text"
+            android:minHeight="48dp"
+            android:text="@={viewModel.taskDescription}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.504"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/dialog_title_tv" />
+
+
+        <EditText
+            android:id="@+id/date_picker_edit_text"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:focusable="false"
+            android:layout_marginTop="20dp"
+            android:hint="Date"
+            android:inputType="text"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/dialog_description_tv" />
+
+
+        <EditText
+            android:id="@+id/time_picker_edit_text"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:focusable="false"
+            android:inputType="none"
+            android:hint="Time"
+            android:layout_marginTop="20dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            tools:layout_editor_absoluteY="156dp"
+            app:layout_constraintTop_toBottomOf="@+id/date_picker_edit_text"/>
+
+
+
+        <RadioGroup
+            android:gravity="center"
+            android:id="@+id/radioGroup"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:orientation="horizontal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/time_picker_edit_text">
+
+            <RadioButton
+                android:id="@+id/todo_rb"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/todo_chb"
+                app:layout_constraintEnd_toStartOf="@+id/doing_rb"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/time_picker_edit_text" />
+
+
+            <RadioButton
+                android:id="@+id/doing_rb"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:text="@string/doing_chb"
+                app:layout_constraintEnd_toStartOf="@+id/done_rb"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toEndOf="@+id/todo_rb"
+                app:layout_constraintTop_toBottomOf="@+id/time_picker_edit_text" />
+
+            <RadioButton
+                android:id="@+id/done_rb"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:text="@string/done_chb"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toEndOf="@+id/doing_rb"
+                app:layout_constraintTop_toBottomOf="@+id/time_picker_edit_text" />
+
+        </RadioGroup>
+
+        <Button
+            android:id="@+id/cancel_btn"
+            android:layout_width="100dp"
+            android:layout_marginTop="20dp"
+            android:layout_height="wrap_content"
+            android:text="Cancel"
+            app:layout_constraintEnd_toStartOf="@+id/save_btn"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/radioGroup" />
+
+        <Button
+            android:id="@+id/save_btn"
+            android:layout_width="100dp"
+            android:layout_marginTop="20dp"
+            android:layout_height="wrap_content"
+            android:text="Save"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/cancel_btn"
+            app:layout_constraintTop_toBottomOf="@+id/radioGroup" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
