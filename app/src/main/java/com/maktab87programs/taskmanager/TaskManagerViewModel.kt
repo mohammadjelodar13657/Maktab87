@@ -4,7 +4,7 @@ import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 
-class TaskManagerViewModel: ViewModel() {
+class TaskManagerViewModel(private val taskRepository: TaskRepository): ViewModel() {
 
     // Set username and user status in action bar
     private val usernameLive = MutableLiveData<String>()
@@ -98,4 +98,23 @@ class TaskManagerViewModel: ViewModel() {
         userStatus.value = status
     }
 
+    fun getAllTasks() {
+        val allTasksList = taskRepository.getAllTasks()
+        for(task in allTasksList) {
+            when(task.state) {
+                State.TODO.name -> {
+                    totalTodoList.add(task)
+                    pushTodo(totalTodoList)
+                }
+                State.DOING.name -> {
+                    totalDoingList.add(task)
+                    pushDoing(totalDoingList)
+                }
+                State.TODO.name -> {
+                    totalDoneList.add(task)
+                    pushDone(totalDoneList)
+                }
+            }
+        }
+    }
 }
