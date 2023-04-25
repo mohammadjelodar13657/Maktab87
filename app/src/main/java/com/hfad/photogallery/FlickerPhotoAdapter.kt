@@ -5,9 +5,9 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
-import com.bumptech.glide.Glide
 import com.hfad.photogallery.data.Photo
 import com.hfad.photogallery.databinding.ItemPhotoBinding
+import com.squareup.picasso.Picasso
 
 class FlickrPhotosAdapter :
     ListAdapter<Photo, FlickrPhotosAdapter.PhotoViewHolder>(DiffCallback) {
@@ -28,10 +28,12 @@ class FlickrPhotosAdapter :
 
         fun bind(photo: Photo) {
             binding.apply {
-                Glide.with(itemView.context)
+                Picasso.get()
                     .load(photo.url_s)
                     .placeholder(R.drawable.placeholder)
                     .error(R.drawable.error)
+                    .fit()
+                    .centerCrop()
                     .into(imageView)
                 titleView.text = photo.title
             }
