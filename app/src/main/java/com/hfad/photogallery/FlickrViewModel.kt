@@ -5,8 +5,11 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.hfad.photogallery.FlickrApiClient.apiService
 import com.hfad.photogallery.data.Photo
 import kotlinx.coroutines.launch
+import retrofit2.Retrofit
+import retrofit2.converter.gson.GsonConverterFactory
 
 class FlickrViewModel : ViewModel() {
     private val _photos = MutableLiveData<List<Photo>>()
@@ -15,13 +18,13 @@ class FlickrViewModel : ViewModel() {
 
     fun fetchPopularPhotos() {
         viewModelScope.launch {
-            val response = FlickrApiClient.apiService.getPopularPhotos(
+            val response = apiService.getPopularPhotos (
                 apiKey = "1c04e05bce6e626247758d120b372a73",
                 method = "flickr.photos.getPopular",
                 userId = "34427466731@N01",
                 extras = "url_s",
                 format = "json",
-                nojsoncallback = 1,
+                noJsonCallback = 1,
                 perPage = 100,
                 page = 1
             )

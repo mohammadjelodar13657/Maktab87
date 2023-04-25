@@ -21,6 +21,8 @@ class PhotoFragment : Fragment(R.layout.fragment_photo) {
         viewModel = ViewModelProvider(this).get(FlickrViewModel::class.java)
         viewModel.fetchPopularPhotos()
 
+        adapter = FlickrPhotosAdapter()
+
         binding.recyclerView.adapter = adapter
 
         viewModel.photos.observe(viewLifecycleOwner) {
