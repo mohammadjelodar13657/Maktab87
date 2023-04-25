@@ -1,4 +1,4 @@
-package com.example.kointest.ui
+package com.hfad.azmoon.ui
 
 import android.os.Bundle
 import android.view.View
@@ -7,9 +7,9 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.example.kointest.MovieAdaptor
-import com.example.kointest.R
-import com.example.kointest.databinding.FragmentMovieBinding
+import com.hfad.azmoon.MovieAdaptor
+import com.hfad.azmoon.R
+import com.hfad.azmoon.databinding.FragmentMovieBinding
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint

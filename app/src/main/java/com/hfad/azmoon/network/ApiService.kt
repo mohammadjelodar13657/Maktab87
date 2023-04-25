@@ -1,5 +1,4 @@
-package com.example.kointest.Network
-
+package com.hfad.azmoon.network
 
 import retrofit2.http.GET
 import retrofit2.http.QueryMap

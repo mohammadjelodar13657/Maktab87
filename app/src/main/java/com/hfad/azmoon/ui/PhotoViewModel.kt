@@ -1,12 +1,11 @@
-package com.example.kointest.ui
+package com.hfad.azmoon.ui
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.kointest.Network.MovieResponse
-import com.example.kointest.Network.MovieResult
-import com.example.kointest.Network.RemoteDataSource
+import com.hfad.azmoon.network.MovieResponse
+import com.hfad.azmoon.network.RemoteDataSource
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
 import javax.inject.Inject

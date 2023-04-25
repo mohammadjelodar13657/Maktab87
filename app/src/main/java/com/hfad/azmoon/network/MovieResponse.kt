@@ -1,4 +1,4 @@
-package com.example.kointest.Network
+package com.hfad.azmoon.network
 
 data class MovieResponse(
     val page: Int?,

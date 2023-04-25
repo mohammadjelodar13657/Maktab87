@@ -1,4 +1,4 @@
-package com.example.kointest.Network
+package com.hfad.azmoon.network
 
 data class MovieResult(
     val adult: Boolean?,

@@ -1,4 +1,4 @@
-package com.example.kointest.di
+package com.hfad.azmoon.di
 
 import android.app.Application
 import dagger.hilt.android.HiltAndroidApp

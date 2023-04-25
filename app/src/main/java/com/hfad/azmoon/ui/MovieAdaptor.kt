@@ -1,4 +1,4 @@
-package com.example.kointest
+package com.hfad.azmoon
 
 import android.view.LayoutInflater
 import android.view.View
@@ -8,7 +8,8 @@ import android.widget.TextView
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
-import com.example.kointest.Network.MovieResult
+import com.hfad.azmoon.R
+import com.hfad.azmoon.network.MovieResult
 
 class MovieAdaptor : ListAdapter<MovieResult, MovieAdaptor.PagingViewHolder>(ToDoCallBack()) {
     class PagingViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {

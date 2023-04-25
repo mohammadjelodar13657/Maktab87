@@ -1,6 +1,6 @@
-package com.example.kointest.di
-import com.example.kointest.Network.ApiService
+package com.hfad.azmoon.di
 import com.example.kointest.NetworkParams
+import com.hfad.azmoon.network.ApiService
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
