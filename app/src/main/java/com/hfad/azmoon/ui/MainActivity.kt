@@ -18,11 +18,11 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = DataBindingUtil.setContentView(this, R.layout.activity_main)
 
-        bottomNavInitiator()
+//        bottomNavInitiator()
     }
     fun bottomNavInitiator() {
         val navHostFragment =
-            supportFragmentManager.findFragmentById(R.id.fragmentContainerView2) as NavHostFragment
+            supportFragmentManager.findFragmentById(R.id.fragmentContainerView) as NavHostFragment
         navController = navHostFragment.navController
         val bottomNavigationView = binding.botNavId
         NavigationUI.setupWithNavController(bottomNavigationView, navController)
