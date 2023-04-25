@@ -21,7 +21,7 @@ class FlickrViewModel : ViewModel() {
                 userId = "34427466731@N01",
                 extras = "url_s",
                 format = "json",
-                nojsoncallback = 1,
+                noJsonCallback = 1,
                 perPage = 100,
                 page = 1
             )
