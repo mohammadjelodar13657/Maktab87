@@ -5,7 +5,8 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
-import com.bumptech.glide.Glide
+import coil.load
+import coil.transform.CircleCropTransformation
 import com.hfad.photogallery.data.Photo
 import com.hfad.photogallery.databinding.ItemPhotoBinding
 
@@ -28,11 +29,12 @@ class FlickrPhotosAdapter :
 
         fun bind(photo: Photo) {
             binding.apply {
-                Glide.with(itemView.context)
-                    .load(photo.url_s)
-                    .placeholder(R.drawable.placeholder)
-                    .error(R.drawable.error)
-                    .into(imageView)
+                imageView.load(photo.url_s) {
+                    crossfade(true)
+                    placeholder(R.drawable.placeholder)
+                    error(R.drawable.error)
+                    transformations(CircleCropTransformation())
+                }
                 titleView.text = photo.title
             }
         }
