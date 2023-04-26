@@ -5,6 +5,7 @@ import android.view.View
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.hfad.photogallery.databinding.FragmentPhotoBinding
 
 class PhotoFragment : Fragment(R.layout.fragment_photo) {
@@ -23,6 +24,7 @@ class PhotoFragment : Fragment(R.layout.fragment_photo) {
 
         adapter = FlickrPhotosAdapter()
         binding.recyclerView.adapter = adapter
+        binding.recyclerView.layoutManager = LinearLayoutManager(requireContext())
 
         viewModel.photos.observe(viewLifecycleOwner) {
             adapter.submitList(it)
